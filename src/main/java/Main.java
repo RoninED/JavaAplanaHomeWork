@@ -1,19 +1,19 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) throws IOException {
         System.out.println("1 - Калькулятора "
                 + "\n2 - Поиск максимально длиного слова "
-                + "\n3 - Домашнее задание №4.1"
-                + "\n4 - Домашнее задание №4.2"
+                + "\n3 - Домашнее задание № 4.1"
+                + "\n4 - Домашнее задание № 4.2"
+                + "\n5 - Домашнее задание № 5 (интерфейс обьявляет метод calcIT. Родительский класс использует этот интерфейс и реализует тело метода. От родительского класса наследуется класс наследник. Мейн создает экземпляр класса наследника и вызывает его метод calcIt)"
         );
         switch (new BufferedReader(new InputStreamReader(System.in)).readLine()) {
             case "1":
-                Canculator.canculate();
+                Calculator.canculate();
                 break;
             case "2":
                 Words.longestWord();
@@ -23,6 +23,9 @@ public class Main {
                 break;
             case "4":
                 homeWork42();
+                break;
+            case "5":
+                homeWork5();
                 break;
         }
     }
@@ -96,5 +99,9 @@ public class Main {
         System.out.println("Итоговая стоимость: " + sumPrise);
         System.out.println("Итоговый вес: " + sumWeight + " kg");
 
+    }
+
+    public static void homeWork5 () {
+        new CalculateHeritage().calculateIt();
     }
 }
