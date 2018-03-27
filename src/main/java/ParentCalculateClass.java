@@ -29,4 +29,12 @@ public class ParentCalculateClass implements CalculatorInterface{
             }
         }
     }
+
+    public void calculateIt(String string){
+        System.out.println(string);
+    }
+
+    protected void youShallNotPass () {
+        System.out.println(" Youuuu Shalll Nottt Passss");
+    }
 }
