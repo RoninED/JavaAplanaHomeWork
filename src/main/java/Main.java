@@ -11,7 +11,7 @@ public class Main {
                 + "\n2 - Поиск максимально длиного слова "
                 + "\n3 - Домашнее задание № 4.1"
                 + "\n4 - Домашнее задание № 4.2"
-                + "\n5 - Домашнее задание № 5 (интерфейс обьявляет метод calcIT. Родительский класс использует этот интерфейс и реализует тело метода. От родительского класса наследуется класс наследник. Мейн создает экземпляр класса наследника и вызывает его метод calcIt)"
+                + "\n5 - Домашнее задание № 5"
         );
         switch (new BufferedReader(new InputStreamReader(System.in)).readLine()) {
             case "1":
@@ -104,7 +104,6 @@ public class Main {
     }
 
     public static void homeWork5() {
-//        new CalculateHeritage().calculateIt();
 
         try (Scanner scanner = new Scanner(System.in)) {
             System.out.print("Введите первое число: ");
@@ -113,22 +112,21 @@ public class Main {
             String sign = scanner.next();
             System.out.print("Введите следующее число: ");
             float number2 = scanner.nextFloat();
-            System.out.print("Выберите действие или нажмите Enter для расчета: ");
-
-            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-            String sign2 = null;
-            try {
-                sign2 = reader.readLine();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            if (sign2.equals("")) new CalculateHeritage().calculateIt(number1, sign, number2);
-            else {
-                System.out.print("Введите следующее число: ");
-                float number3 = scanner.nextFloat();
-                new CalculateHeritage().calculateIt(number1, sign, number2, sign2, number3);
-
+            switch (sign) {
+                case "+":
+                    new CalculatePlus().calculateIt(number1,sign,number2);
+                    break;
+                case "-":
+                    new CalculateMinus().calculateIt(number1,sign,number2);
+                    break;
+                case "*":
+                    new CalculateMultiply().calculateIt(number1,sign,number2);
+                    break;
+                case "/":
+                    new CalculateDivide().calculateIt(number1,sign,number2);
+                    break;
             }
         }
     }
 }
+
