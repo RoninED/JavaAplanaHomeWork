@@ -2,7 +2,7 @@ import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class Calculator {
-    //Это супер пупер канкулятор
+    //Это супер пупер калькулятор
 
 
     /**

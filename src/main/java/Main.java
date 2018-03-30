@@ -1,7 +1,9 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -101,7 +103,32 @@ public class Main {
 
     }
 
-    public static void homeWork5 () {
-        new CalculateHeritage().calculateIt();
+    public static void homeWork5() {
+//        new CalculateHeritage().calculateIt();
+
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.print("Введите первое число: ");
+            float number1 = scanner.nextFloat();
+            System.out.print("Выберите действие: ");
+            String sign = scanner.next();
+            System.out.print("Введите следующее число: ");
+            float number2 = scanner.nextFloat();
+            System.out.print("Выберите действие или нажмите Enter для расчета: ");
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            String sign2 = null;
+            try {
+                sign2 = reader.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            if (sign2.equals("")) new CalculateHeritage().calculateIt(number1, sign, number2);
+            else {
+                System.out.print("Введите следующее число: ");
+                float number3 = scanner.nextFloat();
+                new CalculateHeritage().calculateIt(number1, sign, number2, sign2, number3);
+
+            }
+        }
     }
 }
