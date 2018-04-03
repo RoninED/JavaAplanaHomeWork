@@ -7,12 +7,12 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        System.out.println("1 - Калькулятора "
+        System.out.println("1 - Калькулятор"
                 + "\n2 - Поиск максимально длиного слова "
-                + "\n3 - Домашнее задание № 4.1"
-                + "\n4 - Домашнее задание № 4.2"
-                + "\n5 - Домашнее задание № 5"
-                + "\n6 - Домашнее задание № 6"
+                + "\n3 - Домашнее задание № 4.1. Поменять два числа в массиве"
+                + "\n4 - Домашнее задание № 4.2. Чек сладостей"
+                + "\n5 - Домашнее задание № 5. ООП Калькулятор"
+                + "\n6 - Домашнее задание № 6. Работа с текстом из файла"
         );
         switch (new BufferedReader(new InputStreamReader(System.in)).readLine()) {
             case "1":
@@ -137,7 +137,14 @@ public class Main {
         try {
             FileReader fr = new FileReader("task6.txt");
             BufferedReader br = new BufferedReader(fr);
-            String fileMessage = br.readLine();
+            String fileMessage = null;
+            String tempString =null;
+            while ((tempString = br.readLine())!=null){
+                fileMessage = (fileMessage + " " + tempString);
+            }
+
+
+
             System.out.println("\nФайл содержит: " + fileMessage);
             br.close();
             fr.close();
