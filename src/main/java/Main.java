@@ -1,8 +1,8 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
+import java.sql.SQLOutput;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -12,6 +12,7 @@ public class Main {
                 + "\n3 - Домашнее задание № 4.1"
                 + "\n4 - Домашнее задание № 4.2"
                 + "\n5 - Домашнее задание № 5"
+                + "\n6 - Домашнее задание № 6"
         );
         switch (new BufferedReader(new InputStreamReader(System.in)).readLine()) {
             case "1":
@@ -28,6 +29,9 @@ public class Main {
                 break;
             case "5":
                 homeWork5();
+                break;
+            case "6":
+                homeWork6();
                 break;
         }
     }
@@ -114,19 +118,74 @@ public class Main {
             float number2 = scanner.nextFloat();
             switch (sign) {
                 case "+":
-                    new CalculatePlus().calculateIt(number1,sign,number2);
+                    new CalculatePlus().calculateIt(number1, sign, number2);
                     break;
                 case "-":
-                    new CalculateMinus().calculateIt(number1,sign,number2);
+                    new CalculateMinus().calculateIt(number1, sign, number2);
                     break;
                 case "*":
-                    new CalculateMultiply().calculateIt(number1,sign,number2);
+                    new CalculateMultiply().calculateIt(number1, sign, number2);
                     break;
                 case "/":
-                    new CalculateDivide().calculateIt(number1,sign,number2);
+                    new CalculateDivide().calculateIt(number1, sign, number2);
                     break;
             }
         }
     }
+
+    public static void homeWork6() {
+        try {
+            FileReader fr = new FileReader("task6.txt");
+            BufferedReader br = new BufferedReader(fr);
+            String fileMessage = br.readLine();
+            System.out.println("\nФайл содержит: " + fileMessage);
+            br.close();
+            fr.close();
+
+            String[] messageArr = fileMessage.split(" ");
+            System.out.print("\nСортировка по алфавиту: ");
+            Arrays.sort(messageArr);
+            for (int i = 0; i < messageArr.length; i++) {
+                System.out.print(messageArr[i] + " ");
+            }
+            System.out.println();
+
+            System.out.println("\nКоличество повторений:");
+            ArrayList[] counter = new ArrayList[2];
+            counter[0] = new ArrayList<String>();
+            counter[1] = new ArrayList<Integer>();
+            for (int i = 0; i < messageArr.length; i++) {
+                boolean newWord = true;
+                for (int j = 0; j < counter[0].size(); j++) {
+                    if (counter[0].get(j).equals(messageArr[i])) {
+                        newWord = false;
+                        counter[1].set(j, (Integer) counter[1].get(j) + 1);
+                    }
+                }
+                if (newWord == true) {
+                    counter[0].add(messageArr[i]);
+                    counter[1].add(1);
+                }
+            }
+            for (int i = 0; i < counter[0].size(); i++) {
+                System.out.println(counter[0].get(i) + " = " + counter[1].get(i));
+            }
+
+            System.out.print("\nCлово с максимальным количеством повторений: ");
+            int maxCount = 0;
+            int indexMax = 0;
+            for (int i = 0; i < counter[1].size(); i++) {
+                if (maxCount < (Integer) counter[1].get(i)) {
+                    maxCount = (Integer) counter[1].get(i);
+                    indexMax = i;
+                }
+            }
+            System.out.println(counter [0].get(indexMax) + "\nПовторений = "+ counter [1].get(indexMax));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }
 
