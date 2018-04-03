@@ -137,10 +137,10 @@ public class Main {
         try {
             FileReader fr = new FileReader("task6.txt");
             BufferedReader br = new BufferedReader(fr);
-            String fileMessage = "";
+            String fileMessage = " ";
             String tempString =null;
-            while ((tempString = br.readLine())!=null){
-                fileMessage = (fileMessage + " " + tempString);
+            while ((tempString = br.readLine())!=null ){
+               if (!tempString.equals("")| tempString.equals("\n"))fileMessage = (fileMessage + " " + tempString);
             }
 
             System.out.println("\nФайл содержит: " + fileMessage);
