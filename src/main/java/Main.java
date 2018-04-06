@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, DivideZeroExeption {
         System.out.println("1 - Калькулятор"
                 + "\n2 - Поиск максимально длиного слова "
                 + "\n3 - Домашнее задание № 4.1. Поменять два числа в массиве"
@@ -107,7 +107,7 @@ public class Main {
 
     }
 
-    public static void homeWork5() {
+    public static void homeWork5() throws DivideZeroExeption {
 
         try (Scanner scanner = new Scanner(System.in)) {
             System.out.print("Введите первое число: ");
