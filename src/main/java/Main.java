@@ -33,6 +33,7 @@ public class Main {
             case "6":
                 homeWork6();
                 break;
+
         }
     }
 
@@ -116,18 +117,20 @@ public class Main {
             String sign = scanner.next();
             System.out.print("Введите следующее число: ");
             float number2 = scanner.nextFloat();
+            DecimalFormat decimalFormat  = new DecimalFormat();
+            System.out.print(decimalFormat.format(number1) + " " + sign + " " + decimalFormat.format(number2) + " = ");
             switch (sign) {
                 case "+":
-                    new CalculatePlus().calculateIt(number1, sign, number2);
+                    System.out.println(new CalculatePlus().calculateIt(number1, sign ,number2));
                     break;
                 case "-":
-                    new CalculateMinus().calculateIt(number1, sign, number2);
+                    System.out.println( new CalculateMinus().calculateIt(number1, sign, number2));
                     break;
                 case "*":
-                    new CalculateMultiply().calculateIt(number1, sign, number2);
+                    System.out.println(new CalculateMultiply().calculateIt(number1, sign, number2));
                     break;
                 case "/":
-                    new CalculateDivide().calculateIt(number1, sign, number2);
+                    System.out.println(new CalculateDivide().calculateIt(number1, sign, number2));
                     break;
             }
         }
@@ -138,9 +141,9 @@ public class Main {
             FileReader fr = new FileReader("task6.txt");
             BufferedReader br = new BufferedReader(fr);
             String fileMessage = " ";
-            String tempString =null;
-            while ((tempString = br.readLine())!=null ){
-               if (!tempString.equals("")| tempString.equals("\n"))fileMessage = (fileMessage + " " + tempString);
+            String tempString = null;
+            while ((tempString = br.readLine()) != null) {
+                if (!tempString.equals("") | tempString.equals("\n")) fileMessage = (fileMessage + " " + tempString);
             }
 
             System.out.println("\nФайл содержит: " + fileMessage);
@@ -185,11 +188,13 @@ public class Main {
                     indexMax = i;
                 }
             }
-            System.out.println(counter [0].get(indexMax) + "\nПовторений = "+ counter [1].get(indexMax));
+            System.out.println(counter[0].get(indexMax) + "\nПовторений = " + counter[1].get(indexMax));
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+
 
 
 }
