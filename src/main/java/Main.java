@@ -108,32 +108,36 @@ public class Main {
 
     }
 
-    public static void homeWork5() throws DivideZeroExeption {
+    public static void homeWork5() {
+        try {
 
-        try (Scanner scanner = new Scanner(System.in)) {
-            System.out.print("Введите первое число: ");
-            float number1 = scanner.nextFloat();
-            System.out.print("Выберите действие: ");
-            String sign = scanner.next();
-            System.out.print("Введите следующее число: ");
-            float number2 = scanner.nextFloat();
-            DecimalFormat decimalFormat  = new DecimalFormat();
-            System.out.print(decimalFormat.format(number1) + " " + sign + " " + decimalFormat.format(number2) + " = ");
-            switch (sign) {
-                case "+":
-                    System.out.println(new CalculatePlus().calculateIt(number1, sign ,number2));
-                    break;
-                case "-":
-                    System.out.println( new CalculateMinus().calculateIt(number1, sign, number2));
-                    break;
-                case "*":
-                    System.out.println(new CalculateMultiply().calculateIt(number1, sign, number2));
-                    break;
-                case "/":
-                    System.out.println(new CalculateDivide().calculateIt(number1, sign, number2));
-                    break;
+            try (Scanner scanner = new Scanner(System.in)) {
+                System.out.print("Введите первое число: ");
+                float number1 = scanner.nextFloat();
+                System.out.print("Выберите действие: ");
+                String sign = scanner.next();
+                System.out.print("Введите следующее число: ");
+                float number2 = scanner.nextFloat();
+                DecimalFormat decimalFormat = new DecimalFormat();
+                System.out.print(decimalFormat.format(number1) + " " + sign + " " + decimalFormat.format(number2) + " = ");
+                switch (sign) {
+                    case "+":
+                        System.out.println(new CalculatePlus().calculateIt(number1, sign, number2));
+                        break;
+                    case "-":
+                        System.out.println(new CalculateMinus().calculateIt(number1, sign, number2));
+                        break;
+                    case "*":
+                        System.out.println(new CalculateMultiply().calculateIt(number1, sign, number2));
+                        break;
+                    case "/":
+                        System.out.println(new CalculateDivide().calculateIt(number1, sign, number2));
+                        break;
+                }
             }
+        } catch (DivideZeroExeption dze) {
         }
+
     }
 
     public static void homeWork6() {
@@ -193,8 +197,6 @@ public class Main {
             e.printStackTrace();
         }
     }
-
-
 
 
 }

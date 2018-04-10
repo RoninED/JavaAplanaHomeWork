@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 public class CalculateTest {
 
     @Test
-    public void divideTest() {
+    public void divideTest() throws DivideZeroExeption {
         assertEquals("2", new CalculateDivide().calculateIt((float) 4, "/", (float) 2));
     }
 
